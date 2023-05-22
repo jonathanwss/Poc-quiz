@@ -1,13 +1,10 @@
 import React, { useState } from "react";
-import { FlatList, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { ProgressBar } from "react-native-paper";
 import {
   Title,
   Space,
-  QuizResume,
-  CardResume,
   SubTitle,
-  Banner,
 } from "../../components";
 import QuizImage from "../../components/quizImage";
 import QuizAlternative from "../../components/quizAlternative";
@@ -16,8 +13,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    // alignItems: 'center',
-    // justifyContent: 'center',
     paddingHorizontal: 24,
   },
 });
@@ -35,7 +30,7 @@ const Questions = ({ route }) => {
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
   };
-  console.log(quiz, "aaaa");
+
   return (
     <View style={styles.container}>
       <ProgressBar progress={quiz.completition} color={quiz.iconColor} />

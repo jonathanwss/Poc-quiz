@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Touchable } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import { Card, RadioButton, Title } from "react-native-paper";
 import QuizAlternativeProps from "./types";
 
@@ -31,18 +32,19 @@ const QuizAlternative = ({
 
   return (
     <View style={styles.container}>
-      <Card style={[cardStyle, dynamicStyles]}>
-        <Card.Content style={styles.wrapperAlternative}>
-          <RadioButton
-            value={title}
-            status={selected ? "checked" : "unchecked"}
-            onPress={handleSelect}
-            color="blue"
-          />
+      <TouchableOpacity onPress={handleSelect}>
+        <Card style={[cardStyle, dynamicStyles]}>
+          <Card.Content style={styles.wrapperAlternative}>
+            <RadioButton
+              value={title}
+              status={selected ? "checked" : "unchecked"}
+              color="blue"
+            />
 
-          <Title style={styles.title}>{title}</Title>
-        </Card.Content>
-      </Card>
+            <Title style={styles.title}>{title}</Title>
+          </Card.Content>
+        </Card>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -51,7 +53,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#FFFFFF",
   },
-  card: {},
   wrapperAlternative: {
     flexDirection: "row",
     alignItems: "center",
